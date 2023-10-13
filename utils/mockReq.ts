@@ -1,2 +1,2 @@
-import { createMocks } from 'node-mocks-http';
+import { createMocks, RequestMethod } from 'node-mocks-http';
 import type { NextApiRequest, NextApiResponse } from 'next';
