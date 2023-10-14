@@ -1,9 +1,10 @@
 import {ContextChatEngine, 
-    ChatEngine, 
+    ChatEngine,
+    ChatResponse,
     PDFReader, 
     Document,
     serviceContextFromDefaults, 
-    VectorStoreIndex} from "llamaindex"
+    VectorStoreIndex} from "llamaindex";
 //
 //Export the chat engine
 //
@@ -13,7 +14,11 @@ const getContextEngine = async () => {
         //
         const reader = new PDFReader();
 
-        const document = await reader.loadData(`${process.cwd()}/src/data/Microsoft_2022_Annual_Report.pdf`);
+        //Use the actual document in production :)
+        // const document = await reader.loadData(`${process.cwd()}/data/Microsoft_2022_Annual_Report.pdf`);
+        
+        //Use a super short document during testing :)
+        const document = await reader.loadData(`${process.cwd()}/data/hello_world.pdf`);
         
         //
         //Load it into a vectorIndex

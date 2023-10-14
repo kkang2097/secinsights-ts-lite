@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/7e83d70a-2be0-44f7-9e63-d8876af1b15f/2022_Annual_Report.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20231010%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20231010T225545Z&X-Amz-Expires=86400&X-Amz-Signature=c3378bd5ecf4543e4a51eb097db9e9c859e20cd189c5c2bde1a222adaeab5a23&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%222022_Annual_Report.pdf%22&response-content-type=application%2Fpdf&x-id=GetObject

@@ -6,14 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watch",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
     "lint": "next lint"
   },
   "dependencies": {
     "llamaindex": "^0.0.30",
     "next": "13.5.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "ts-jest": "^29.1.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
