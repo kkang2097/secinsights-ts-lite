@@ -17,6 +17,8 @@ export async function POST(request: NextRequest): Promise<Response> {
     return Response.json(result, {status: 200});
 }
 
+
+//TODO: Test this out
 export async function POST_STREAM(request: NextRequest): Promise<Response> {
     const body = await request.body;
     const question: string = body.query;
