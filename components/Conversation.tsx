@@ -18,6 +18,9 @@ export class Conversation extends React.Component {
         //return something
         return <div className = "conversation">
             CONVERSATION
+            {
+                //TODO: Map the dynamic list
+            }
             </div>;
     }
 }

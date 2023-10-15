@@ -4,7 +4,7 @@ import {Conversation} from '@/components/Conversation'
 
 export default function Home() {
   return (
-  <div class="centered">
+  <div className="centered">
     <Image
     src={Mascot}
     alt="Cool Llama"
