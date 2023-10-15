@@ -23,8 +23,10 @@ export const Conversation = () => {
     return <div><div className = "conversation">
         {
             //TODO: Map the dynamic list
-            messages.map((item: ChatMessage, index: number) => {
-                return <ChatBox textMessage={item.content}></ChatBox>;
+            messages.map((item: ChatMessage, idx: number) => {
+                //TODO: We need to do some conditional component alignment based on the Message.role
+                //since it should display a dialogue
+                return <div key={idx}><ChatBox textMessage={item.content}></ChatBox></div>;
             })
         }
         </div>
