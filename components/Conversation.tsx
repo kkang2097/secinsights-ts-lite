@@ -16,6 +16,7 @@ export const Conversation = () => {
     messages.push(dummyChatMessage);
 
     //helpers
+    //TODO: Fetch for chat completions
 
 
 
