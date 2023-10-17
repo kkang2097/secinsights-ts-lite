@@ -15,10 +15,8 @@ const getContextEngine = async () => {
         const reader = new PDFReader();
 
         //Use the actual document in production :)
-        // const document = await reader.loadData(`${process.cwd()}/data/Microsoft_2022_Annual_Report.pdf`);
-        
+        const document = await reader.loadData(`${process.cwd()}/data/Microsoft_2022_Annual_Report.pdf`);
         //Use a super short document during testing :)
-        const document = await reader.loadData(`${process.cwd()}/data/hello_world.pdf`);
         
         //
         //Load it into a vectorIndex
@@ -42,5 +40,8 @@ const getContextEngine = async () => {
         return chatEngine;
 }
 
+export const getText = async () => {
+    return await "NOTHIGN"
+};
 
 export const ContextEngine = await getContextEngine();
