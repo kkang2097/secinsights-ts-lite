@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Dev Status:
 - 1 last bugfix needed, app/api/dummy/route.ts doesn't load ContextEngine as expected. We're stuck awaiting the ContextEngine result.
+- Docker setup doesn't work yet (low priority issue)
+
 
 ## Environment Variables
 Create a .env file in the root directory,
