@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Environment Variables
+Create a .env file in the root directory,
+
+- Development: .env.local
+- Test: .env.test.local
+
+All you need is an OpenAI key set to OPENAI_API_KEY = "sk-..."
+
+
 ## Getting Started
 
 First, run the development server:
