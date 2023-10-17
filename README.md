@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Dev Status:
+- 1 last bugfix needed, app/api/dummy/route.ts doesn't load ContextEngine as expected. We're stuck awaiting the ContextEngine result.
+
 ## Environment Variables
 Create a .env file in the root directory,
 
