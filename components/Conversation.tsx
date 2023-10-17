@@ -2,22 +2,49 @@
 'use client'
 
 //Act like we're working in vanilla React again
-import React, {Component} from 'react';
+import React, {Component,useState} from 'react';
 import { ChatBox } from './ChatBox';
 import {InputBox} from '@/components/InputBox';
 import {ChatMessage, MessageType} from "llamaindex";
-
+import {getQuery} from '@/app/frontend_callbacks/index';
 
 export const Conversation = () => {
 
     //State
-    let messages: ChatMessage[] = [];
+    // let messages: ChatMessage[] = [];
     let dummyChatMessage: ChatMessage = {content: "hello", role: "nothing" as MessageType};
-    messages.push(dummyChatMessage);
+    // messages.push(dummyChatMessage);
+    const [messages, setMessages] = useState<ChatMessage[]>([]);
 
     //helpers
     //TODO: Fetch for chat completions
+    //TODO: Debug fetch frontend/backend connection
 
+    function doThis(item: string){
+        console.log("GETTING DOTHIS")
+    }
+
+
+    async function query(query: string) : Promise<void> {
+        // console.log("TRYING QUERY");
+        // const response = await fetch(`http://localhost:3000/api/dummy`,
+        // {
+        //     method: 'POST',
+        //     body: JSON.stringify({body: "SOMEHTINGGGG"}),
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //       },
+        //     mode: 'cors'
+        // });
+
+        // const data = await response.json();
+        // console.log(response.body);
+        
+        // console.log(JSON.parse(data).body);
+        setMessages([...messages, dummyChatMessage]);
+        console.log("GOT QUERY");
+        // messages.push(response);
+    }
 
 
     //return something
@@ -30,7 +57,7 @@ export const Conversation = () => {
             })
         }
         </div>
-        <InputBox inputCallback = {()=> {}}></InputBox>
+        <InputBox inputCallback = {query}/>
         </div>;
 
 }
