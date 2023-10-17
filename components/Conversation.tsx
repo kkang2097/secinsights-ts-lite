@@ -7,6 +7,7 @@ import { ChatBox } from './ChatBox';
 import {InputBox} from '@/components/InputBox';
 import {ChatMessage, MessageType} from "llamaindex";
 import {getQuery} from '@/app/frontend_callbacks/index';
+import {Query} from '@/types/Query';
 
 export const Conversation = () => {
 
@@ -26,21 +27,22 @@ export const Conversation = () => {
 
 
     async function query(query: string) : Promise<void> {
-        // console.log("TRYING QUERY");
-        // const response = await fetch(`http://localhost:3000/api/dummy`,
-        // {
-        //     method: 'POST',
-        //     body: JSON.stringify({body: "SOMEHTINGGGG"}),
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //       },
-        //     mode: 'cors'
-        // });
+        console.log("TRYING QUERY");
+        //TODO: Fix empty API call
 
-        // const data = await response.json();
-        // console.log(response.body);
-        
-        // console.log(JSON.parse(data).body);
+        const response = await fetch(`http://localhost:3000/api/dummy`,
+        {
+            method: 'POST',
+            body: JSON.stringify({query: "Where is Istanbul?"} as Query),
+            headers: {
+                "Content-Type": "application/json"
+              },
+            mode: 'cors'
+        });
+
+        const data = await response.json();
+
+        //Adds new message to message list
         setMessages([...messages, dummyChatMessage]);
         console.log("GOT QUERY");
         // messages.push(response);
