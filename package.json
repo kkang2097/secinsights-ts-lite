@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "encoding": "^0.1.13",
     "llamaindex": "^0.0.30",
     "next": "13.5.4",
     "react": "^18",
