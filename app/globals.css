@@ -34,6 +34,7 @@ body {
   left: 50%;
   transform: translate(-50%,0%);
   display: block;
+  position: absolute;
   padding: 10px;
   padding-block: 10px;
   height: inherit;
@@ -58,10 +59,12 @@ div {
   display: block;
   background-clip: padding-box;
   box-shadow: inset 0 0 10px #074ccc;
+  overflow-wrap: break-word;
 }
 
 .input-box {
   background-clip: padding-box;
   box-shadow: inset 0 0 10px #ff0000;
   width: 100%;
+  overflow-wrap: break-word;
 }
