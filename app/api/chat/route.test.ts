@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import POST from './route';
+import postHandle from './route';
 import createMocks from 'node-mocks-http';
 import { getMockQuery } from '@/utils/mockReq';
 
@@ -25,8 +25,8 @@ describe(
             
             //Expect something here
             const mockRequest = getMockQuery("Where is Istanbul?");
-
-            const response = await POST(mockRequest);
+            console.log("got mock query");
+            const response = await postHandle(mockRequest);
             expect(response.status).toBe(200);
         });
     }

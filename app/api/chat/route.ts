@@ -1,13 +1,14 @@
 // import {NextResponse} from 'next';
 import {ContextEngine} from '@/lits_components/contextEngine';
 import {ChatResponse} from "llamaindex";
+import {Query} from '@/types/Query';
 import { NextRequest, NextApiRequest, NextApiResponse } from 'next/server';
 import {iteratorToStream} from '@/utils/streamConverter';
 
 //TODO: Deprecate this and combine into one function hopefully
 
 //This handles POST requests only
-export async function POST(request: NextApiRequest) : Promise<NextApiResponse<ChatResponse>> {
+export async function POST(request: NextApiRequest<Query>) : Promise<NextApiResponse<ChatResponse>> {
     //The issue here is that the request body is empty, not the response body.
     //Update: Issue fixed.
     const body = await request.json();
@@ -20,15 +21,12 @@ export async function POST(request: NextApiRequest) : Promise<NextApiResponse<Ch
 
 
 //This is for the test script route.test.ts
+export async function postHandle(request: Request): Promise<Response> {
+    const question: string = "Where is Istanbul?";
 
-// export default async function POST(request: Request): Promise<Response> {
-
-//     // const body = await request.json();
-//     const question: string = "Where is Istanbul?";
-
-//     const result: ChatResponse = await ContextEngine.chat(question, undefined);
-//     return Response.json(result, {status: 200});
-// }
+    const result: ChatResponse = await ContextEngine.chat(question, undefined);
+    return Response.json(result, {status: 200});
+}
 
 
 

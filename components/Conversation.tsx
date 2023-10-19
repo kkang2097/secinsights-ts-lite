@@ -3,6 +3,7 @@
 
 //Act like we're working in vanilla React again
 import React, {Component,useState} from 'react';
+import ReactDOM from 'react-dom';
 import { ChatBox } from './ChatBox';
 import {InputBox} from '@/components/InputBox';
 import {ChatMessage, MessageType} from "llamaindex";
@@ -13,8 +14,7 @@ export const Conversation = () => {
 
     //State
     // let messages: ChatMessage[] = [];
-    let dummyChatMessage: ChatMessage = {content: "hello", role: "nothing" as MessageType};
-    // messages.push(dummyChatMessage);
+    let dummyChatMessage: ChatMessage = {content: "hello", role: "user" as MessageType};
     const [messages, setMessages] = useState<ChatMessage[]>([]);
 
     //helpers
@@ -25,26 +25,31 @@ export const Conversation = () => {
         console.log("GETTING DOTHIS")
     }
 
+    function addMessage(query: string) {
+        const userChatMessage: ChatMessage = {content: query, role: "user"};
+        setMessages((items: ChatMessage[]) => [...items, userChatMessage]);
+    }
 
     async function query(query: string) : Promise<void> {
-        console.log("TRYING QUERY");
-        //TODO: Fix empty API call
+        //Add query to chat window
+        // let tempList: ChatMessage[] = messages;
+        // const userChatMessage: ChatMessage = {content: query, role: "user"};
+        // setMessages([...messages, userChatMessage]);
 
-        const response = await fetch(`http://localhost:3000/api/dummy`,
+        //Add LLM's response to chat window
+        const response = await fetch(`http://localhost:3000/api/chat`,
         {
             method: 'POST',
-            body: JSON.stringify({query: "Where is Istanbul?"} as Query),
+            body: JSON.stringify({query: query} as Query),
             headers: {
                 "Content-Type": "application/json"
               },
-            mode: 'cors'
+            // mode: 'cors'
         });
 
         const data = await response.json();
-
-        //Adds new message to message list
-        setMessages([...messages, dummyChatMessage]);
-        console.log("GOT QUERY");
+        const newChatMessage: ChatMessage = {content: data.response, role: "assistant"};
+        setMessages((items: ChatMessage[]) => [...items, newChatMessage]);
         // messages.push(response);
     }
 
@@ -59,7 +64,10 @@ export const Conversation = () => {
             })
         }
         </div>
-        <InputBox inputCallback = {query}/>
+        <InputBox inputCallback = {(chatString: string) => {
+            addMessage(chatString);
+            query(chatString);
+        }}/>
         </div>;
 
 }
