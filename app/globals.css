@@ -30,7 +30,6 @@ body {
 .centered {
   background-color: transparent;
   position: absolute;
-  top: 30%;
   left: 50%;
   transform: translate(-50%,0%);
   display: block;
@@ -62,9 +61,180 @@ div {
   overflow-wrap: break-word;
 }
 
-.input-box {
-  background-clip: padding-box;
-  box-shadow: inset 0 0 10px #ff0000;
+.card {
+  background: #fff;
+  transition: .5s;
+  border: 0;
+  margin-bottom: 30px;
+  border-radius: .55rem;
+  position: relative;
   width: 100%;
-  overflow-wrap: break-word;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+}
+
+
+.chat-wrap .chat {
+  border-left: 1px solid #eaeaea
+}
+
+
+.chat .chat-history {
+  padding: 20px;
+  border-bottom: 2px solid #fff
+}
+
+.chat .chat-history ul {
+  padding: 0
+}
+
+.chat .chat-history ul li {
+  list-style: none;
+  margin-bottom: 30px
+}
+
+.chat .chat-history ul li:last-child {
+  margin-bottom: 0px
+}
+
+.chat .chat-history .message-data {
+  margin-bottom: 15px
+}
+
+.chat .chat-history .message-data img {
+  border-radius: 40px;
+  width: 40px
+}
+
+.chat .chat-history .message-data-time {
+  color: #434651;
+  padding-left: 6px
+}
+
+.chat .chat-history .message {
+  color: #444;
+  padding: 18px 20px;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 7px;
+  display: inline-block;
+  position: relative
+}
+
+.chat .chat-history .message:after {
+  bottom: 100%;
+  left: 7%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #fff;
+  border-width: 10px;
+  margin-left: -10px
+}
+
+.chat .chat-history .other-message {
+  background: #efefef
+}
+
+
+.chat .chat-history .my-message {
+  background: #e8f1f3;
+  text-align: right
+}
+
+
+.chat .chat-message {
+  padding: 20px;
+}
+
+.float-right {
+  float: right
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0
+}
+
+@media only screen and (max-width: 767px) {
+  .chat-app .people-list {
+      height: 465px;
+      width: 100%;
+      overflow-x: auto;
+      background: #fff;
+      left: -400px;
+      display: none
+  }
+  .chat-app .people-list.open {
+      left: 0
+  }
+  .chat-app .chat {
+      margin: 0
+  }
+  .chat-app .chat .chat-header {
+      border-radius: 0.55rem 0.55rem 0 0
+  }
+  .chat-app .chat-history {
+      height: 300px;
+      overflow-x: auto
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .chat-app .chat-list {
+      height: 650px;
+      overflow-x: auto
+  }
+  .chat-app .chat-history {
+      height: 600px;
+      overflow-x: auto
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .chat-app .chat-list {
+      height: 480px;
+      overflow-x: auto
+  }
+  .chat-app .chat-history {
+      height: calc(100vh - 350px);
+      overflow-x: auto
+  }
+}
+
+.input-group{
+  display: flex;
+  align-content: stretch;
+  border: 1px solid #ccc;
+}
+
+.input-group .addon{
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 0.5em 1em;
+}
+
+.input-group .input-box {
+flex: 1 0 auto;
+height:40px;
+overflow-wrap: break-word;
+ border: none;
+ width: 99%;
+ background-color: #f4f7f6;
+}
+
+.form{
+  width: 100%;
+  background-color: #f4f7f6;
+  border: 1px solid #ccc;
+}
+
+.chat-item{
+  padding:10px 0px;
 }
