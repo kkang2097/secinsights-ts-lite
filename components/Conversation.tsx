@@ -14,8 +14,10 @@ export const Conversation = () => {
 
     //State
     // let messages: ChatMessage[] = [];
-    let dummyChatMessage: ChatMessage = {content: "hello", role: "user" as MessageType};
-    const [messages, setMessages] = useState<ChatMessage[]>([]);
+    let dummyChatMessage: ChatMessage = {content: "Hello, how can I help you?", role: "bot" as MessageType};
+    const [messages, setMessages] = useState<ChatMessage[]>([
+        dummyChatMessage
+    ]);
 
     //helpers
     //TODO: Fetch for chat completions
@@ -55,19 +57,32 @@ export const Conversation = () => {
 
 
     //return something
-    return <div><div className = "conversation">
-        {
-            messages.map((item: ChatMessage, idx: number) => {
-                //TODO: We need to do some conditional component alignment based on the Message.role
-                //since it should display a dialogue
-                return <div key={idx}><ChatBox textMessage={item.content}></ChatBox></div>;
-            })
-        }
-        </div>
-        <InputBox inputCallback = {(chatString: string) => {
-            addMessage(chatString);
-            query(chatString);
-        }}/>
-        </div>;
+    return (  
+              <div className="card chat-wrap">
+                <div className="chat">
+                  <div className="chat-history">
+                    <ul>
+                      {messages.map((item: ChatMessage, idx: number) => {
+                        return (
+                          <div key={idx}>
+                            <ChatBox
+                              role={item.role}
+                              textMessage={item.content}
+                            ></ChatBox>
+                          </div>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                  <InputBox
+                    inputCallback={(chatString: string) => {
+                      addMessage(chatString);
+                      query(chatString);
+                    }}
+                  />
+                </div>
+              </div>
+      );
+      
 
 }
