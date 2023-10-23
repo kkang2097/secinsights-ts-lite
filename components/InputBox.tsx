@@ -21,11 +21,13 @@ export const InputBox = ({inputCallback}: {inputCallback: Function}) => {
               onSubmit={(e) => {
                 e.preventDefault();
                 inputCallback(query);
+                setQuery('');
               }}
             >
               <input
                 className="input-box"
                 type="textarea"
+                value={query}
                 onChange={(e) => {
                   setQuery(e.target.value);
                 }}
